@@ -5,12 +5,12 @@ const app = express();
 const port = process.env.PORT || 3000;
 const loadBalancerPort = process.env.LOAD_BALANCER_PORT || 3333;
 
-app.get("/greeting", (req, res) => {
+app.get("/api/greeting", (req, res) => {
   res.send(req.query.name ? `Hello ${req.query.name}` : "Hello World!");
 });
 
 app.use(
-  "/service",
+  "/api/service",
   createProxyMiddleware({
     target: `http://127.0.0.1:${loadBalancerPort}/hello`,
   })
