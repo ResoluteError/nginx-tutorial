@@ -6,7 +6,9 @@ const port = process.env.PORT || 3000;
 const loadBalancerPort = process.env.LOAD_BALANCER_PORT || 3333;
 
 app.get("/api/greeting", (req, res) => {
-  res.send(req.query.name ? `Hello ${req.query.name}` : "Hello World!");
+  res.send({
+    greeting: req.query.name ? `Hello ${req.query.name}` : "Hello World!",
+  });
 });
 
 app.use(

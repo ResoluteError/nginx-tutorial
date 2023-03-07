@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.get("/hello", (req, res) => {
-  res.send(`Hello from internal port: ${port}`);
+  res.send({ hello: `Hello from internal port: ${port}` });
 });
 
 app.get("*", (req, res) => {
