@@ -15,6 +15,7 @@ app.use(
   "/api/service",
   createProxyMiddleware({
     target: `http://127.0.0.1:${loadBalancerPort}/hello`,
+    ignorePath: true,
   })
 );
 
