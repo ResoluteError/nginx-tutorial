@@ -1,0 +1,13 @@
+# Before generated ssl certificate 
+server {
+
+  server_name nginx.douglas-reiser.com;
+  listen 80;
+  listen [::]:80 ipv6only=on;
+
+  location / {
+    root /home/ubuntu/nginx-tutorial/website-template/;
+    index index.html;
+  }
+
+}

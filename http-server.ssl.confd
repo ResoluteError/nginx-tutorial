@@ -1,0 +1,44 @@
+# After generated ssl certificate 
+
+# Redirect all http (port 80) requests to https (port 443) 
+server {
+    listen 80;
+    listen [::]:80 ipv6only=on;
+    server_name _;
+    return 301 https://$host$request_uri;
+}
+
+# Listen to https requests coming in on https://nginx.douglas-reiser.com
+server {
+  server_name nginx.douglas-reiser.com;
+
+  listen [::]:443 ssl ipv6only=on; # managed by Certbot
+  listen 443 ssl; # managed by Certbot
+  ssl_certificate /etc/letsencrypt/live/nginx.douglas-reiser.com/fullchain.pem; # managed by Certbot
+  ssl_certificate_key /etc/letsencrypt/live/nginx.douglas-reiser.com/privkey.pem; # managed by Certbot
+  include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+  ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+  location /api {
+    proxy_pass http://127.0.0.1:3000;
+  }
+
+  location / {
+    root /home/ubuntu/nginx-tutorial/website-template/;
+  }
+
+}
+
+
+upstream customService {
+    server 127.0.0.1:4000;
+    server 127.0.0.1:4001;
+}
+
+server {
+  listen 3333;
+  location / {
+    proxy_pass http://customService;
+  }
+
+}
