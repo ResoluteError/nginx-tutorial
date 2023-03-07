@@ -8,7 +8,7 @@
     fetch("https://nginx.douglas-reiser.com/api/greeting")
       .then((data) => data.json())
       .then((json) => {
-        document.getElementById("title").innerHTML = json;
+        document.getElementById("title").innerHTML = json.data;
       })
       .catch((err) => {
         console.log("Error fetching greeting:", err);
@@ -17,7 +17,7 @@
     fetch("https://nginx.douglas-reiser.com/api/service")
       .then((data) => data.json())
       .then((json) => {
-        document.getElementById("subtitle").innerHTML = json;
+        document.getElementById("subtitle").innerHTML = json.data;
       })
       .catch((err) => {
         console.log("Error fetching greeting:", err);
