@@ -8,7 +8,7 @@ app.get("/hello", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.send(`service-api: This path is not supported`);
+  res.send(`service-api: This path is not supported: ${req.path}`);
 });
 
 app.listen(port, () => {
