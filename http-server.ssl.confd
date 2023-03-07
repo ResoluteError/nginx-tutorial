@@ -25,6 +25,7 @@ server {
 
   location / {
     root /home/ubuntu/nginx-tutorial/website-template/;
+    index index.html;
   }
 
 }

@@ -6,7 +6,7 @@
   "scripts": {
     "deploy": "",
     "dev": "nodemon src/index.ts",
-    "run": "concurrently \"PORT=4000 node dist/index.js\" \"PORT=4001 node dist/index.js\"",
+    "prod": "concurrently \"PORT=4000 node dist/index.js\" \"PORT=4001 node dist/index.js\"",
     "build": "tsc"
   },
   "author": "Douglas Reiser",

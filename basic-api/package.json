@@ -6,7 +6,7 @@
   "scripts": {
     "deploy": "",
     "dev": "nodemon src/index.ts",
-    "run": "PORT=3000 LOAD_BALANCER_PORT=33333 node dist/index.js",
+    "prod": "PORT=3000 LOAD_BALANCER_PORT=33333 node dist/index.js",
     "build": "tsc"
   },
   "author": "Douglas Reiser",
