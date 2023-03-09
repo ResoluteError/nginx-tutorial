@@ -41,5 +41,4 @@ server {
   location / {
     proxy_pass http://customService;
   }
-
 }
