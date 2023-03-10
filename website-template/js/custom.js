@@ -5,7 +5,7 @@
   $(window).load(function () {
     $(".preloader").fadeOut(1000); // set duration in brackets
 
-    fetch("https://nginx.douglas-reiser.com/api/greeting")
+    fetch("/api/greeting")
       .then((data) => data.json())
       .then((json) => {
         document.getElementById("title").innerHTML = json.greeting;
@@ -14,7 +14,7 @@
         console.log("Error fetching greeting:", err);
       });
 
-    fetch("https://nginx.douglas-reiser.com/api/service")
+    fetch("/api/service")
       .then((data) => data.json())
       .then((json) => {
         document.getElementById("subtitle").innerHTML = json.hello;
